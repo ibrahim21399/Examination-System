@@ -53,9 +53,10 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(1, -2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 439);
+            this.panel1.Size = new System.Drawing.Size(295, 438);
             this.panel1.TabIndex = 0;
             // 
             // label2
@@ -98,6 +99,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.radioButtonIns);
             this.panel2.Controls.Add(this.radioButtonStu);
             this.panel2.Location = new System.Drawing.Point(387, 209);
@@ -115,7 +117,7 @@
             this.radioButtonIns.Size = new System.Drawing.Size(110, 32);
             this.radioButtonIns.TabIndex = 1;
             this.radioButtonIns.TabStop = true;
-            this.radioButtonIns.Text = "instructor";
+            this.radioButtonIns.Text = "Instructor";
             this.radioButtonIns.UseVisualStyleBackColor = true;
             // 
             // radioButtonStu
@@ -175,9 +177,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(54, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 57);
+            this.label4.Size = new System.Drawing.Size(155, 57);
             this.label4.TabIndex = 2;
-            this.label4.Text = " Systyem";
+            this.label4.Text = " System";
             // 
             // label5
             // 
@@ -187,6 +189,7 @@
             this.label5.Size = new System.Drawing.Size(14, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "X";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Login
             // 
@@ -204,6 +207,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
