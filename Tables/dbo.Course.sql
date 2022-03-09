@@ -1,0 +1,11 @@
+CREATE TABLE [dbo].[Course]
+(
+[Crs_Id] [int] NOT NULL,
+[Crs_Name] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+[Top_Id] [int] NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Course] ADD CONSTRAINT [PK__Course__56CAA5D5D2D4C329] PRIMARY KEY CLUSTERED ([Crs_Id]) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Course] ADD CONSTRAINT [Crs_TopFK] FOREIGN KEY ([Top_Id]) REFERENCES [dbo].[Topic] ([Top_Id]) ON DELETE SET NULL ON UPDATE CASCADE
+GO

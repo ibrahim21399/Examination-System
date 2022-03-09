@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[Topic]
+(
+[Top_Id] [int] NOT NULL,
+[Top_Name] [varchar] (20) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Topic] ADD CONSTRAINT [PK__Topic__AB0DE0AA28238BF1] PRIMARY KEY CLUSTERED ([Top_Id]) ON [PRIMARY]
+GO
