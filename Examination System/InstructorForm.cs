@@ -12,14 +12,24 @@ namespace Examination_System
 {
     public partial class InstructorForm : Form
     {
-        public InstructorForm()
+        Instructor instructor;
+        public InstructorForm(Instructor ins)
         {
             InitializeComponent();
+            instructor = ins;
+
+            label1.Text = "Hello ," + instructor.ins_Name + "  ,your id is  " + instructor.ins_Id + " and you dept_id is  " + instructor.Dept_Id;
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void InstructorForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

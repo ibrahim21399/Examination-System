@@ -51,6 +51,7 @@ namespace Examination_System
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label1.Location = new System.Drawing.Point(100, 35);
@@ -99,6 +100,7 @@ namespace Examination_System
             this.comboBoxTopic.Name = "comboBoxTopic";
             this.comboBoxTopic.Size = new System.Drawing.Size(185, 36);
             this.comboBoxTopic.TabIndex = 11;
+            this.comboBoxTopic.SelectedIndexChanged += new System.EventHandler(this.comboBoxTopic_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -170,7 +172,7 @@ namespace Examination_System
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(49, 66);
+            this.pictureBox3.Location = new System.Drawing.Point(49, 25);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 47);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

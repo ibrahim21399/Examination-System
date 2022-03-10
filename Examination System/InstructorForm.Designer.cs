@@ -56,7 +56,7 @@ namespace Examination_System
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(63, 9);
+            this.pictureBox3.Location = new System.Drawing.Point(64, 25);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 47);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,9 +111,10 @@ namespace Examination_System
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(129, 28);
+            this.label1.Location = new System.Drawing.Point(115, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 28);
             this.label1.TabIndex = 21;
@@ -131,6 +132,7 @@ namespace Examination_System
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InstructorForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.InstructorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
