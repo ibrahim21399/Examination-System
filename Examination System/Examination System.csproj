@@ -70,6 +70,18 @@
     <Compile Include="ExamANDChoices_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Exam\exam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exam\exam.Designer.cs">
+      <DependentUpon>exam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exam\Quescontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Exam\Quescontrol.Designer.cs">
+      <DependentUpon>Quescontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exam_Q.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -165,6 +177,12 @@
     <Compile Include="Topic.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Exam\exam.resx">
+      <DependentUpon>exam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Exam\Quescontrol.resx">
+      <DependentUpon>Quescontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>
     </EmbeddedResource>
