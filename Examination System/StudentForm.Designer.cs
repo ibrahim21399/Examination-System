@@ -67,7 +67,7 @@ namespace Examination_System
             this.comboBoxsub.ForeColor = System.Drawing.Color.MidnightBlue;
             this.comboBoxsub.FormattingEnabled = true;
             this.comboBoxsub.Location = new System.Drawing.Point(421, 247);
-            this.comboBoxsub.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxsub.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxsub.Name = "comboBoxsub";
             this.comboBoxsub.Size = new System.Drawing.Size(245, 43);
             this.comboBoxsub.TabIndex = 14;
@@ -102,7 +102,7 @@ namespace Examination_System
             this.comboBoxTopic.ForeColor = System.Drawing.Color.MidnightBlue;
             this.comboBoxTopic.FormattingEnabled = true;
             this.comboBoxTopic.Location = new System.Drawing.Point(421, 180);
-            this.comboBoxTopic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTopic.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTopic.Name = "comboBoxTopic";
             this.comboBoxTopic.Size = new System.Drawing.Size(245, 43);
             this.comboBoxTopic.TabIndex = 11;
@@ -116,7 +116,7 @@ namespace Examination_System
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(57, 539);
             this.panel1.TabIndex = 15;
@@ -150,7 +150,7 @@ namespace Examination_System
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(84, 260);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 193);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +162,7 @@ namespace Examination_System
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(728, 450);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(83, 74);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -183,9 +183,9 @@ namespace Examination_System
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::Examination_System.Properties.Resources.avatar;
             this.pictureBox3.Location = new System.Drawing.Point(65, 31);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(60, 58);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +224,7 @@ namespace Examination_System
             this.Controls.Add(this.comboBoxTopic);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
