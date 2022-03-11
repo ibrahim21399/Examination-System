@@ -76,8 +76,14 @@ namespace Examination_System
         {
             //check if there is an exam or not     **** take cake of it must handelled
             ex test = new ex();
-            test.Show();
-            this.Hide();
+            if (comboBoxTopic.Text != "" && comboBoxsub.Text !="")
+            {
+                test.Show();
+                this.Hide();
+
+            }
+
+
         }
     }
 }
