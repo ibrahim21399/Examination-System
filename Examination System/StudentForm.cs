@@ -71,5 +71,13 @@ namespace Examination_System
                     comboBoxsub.Items.Add(dd);
                 }
         }
+
+        private void BtnStartExam_Click(object sender, EventArgs e)
+        {
+            //check if there is an exam or not     **** take cake of it must handelled
+            ex test = new ex();
+            test.Show();
+            this.Hide();
+        }
     }
 }

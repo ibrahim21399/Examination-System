@@ -30,7 +30,7 @@ namespace Examination_System
             }
         }
         
-        int count = -1;
+        int count = 0;
         private void BtnNext_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
@@ -54,6 +54,10 @@ namespace Examination_System
             
         }
 
-
+        private void Ex_Load(object sender, EventArgs e)
+        {
+            listQuestions();
+            panel1.Controls.Add(QuestionList[0]);
+        }
     }
 }
