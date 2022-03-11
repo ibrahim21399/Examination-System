@@ -82,6 +82,10 @@ namespace Examination_System
                 this.Hide();
 
             }
+            else
+            {
+                MessageBox.Show("please choose topic and course !!");
+            }
 
 
         }
