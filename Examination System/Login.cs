@@ -17,6 +17,8 @@ namespace Examination_System
         {
             InitializeComponent();
             DB = new Online_Examination_SystemEntities();
+           
+
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
@@ -51,7 +53,9 @@ namespace Examination_System
                 }
                 }catch
                 {
-                    MessageBox.Show("you entered a wrong username or password!!!");
+                    
+                    MessageBoxD ms = new MessageBoxD("You entered a Wrong username or password");
+                    ms.Show();
                 }
             }
             else if (radioButtonIns.Checked == true)
@@ -70,12 +74,15 @@ namespace Examination_System
                 }
                 catch
                 {
-                    MessageBox.Show("you entered a wrong username or password!!!");
+                    MessageBoxD ms = new MessageBoxD("\tYou entered a Wrong username or password");
+                    ms.Show();
                 }
             }
             else
             {
-                MessageBox.Show("you might entered a wrong password , wrong username or missing field..");
+                MessageBoxD ms = new MessageBoxD("You might entered a wrong password \n wrong username or missing field");
+                ms.Show();
+               
             }
         }
     }

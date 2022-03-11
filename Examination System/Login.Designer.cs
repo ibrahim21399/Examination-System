@@ -42,6 +42,7 @@
             this.radioButtonStu = new System.Windows.Forms.RadioButton();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -50,12 +51,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(393, 539);
             this.panel1.TabIndex = 0;
@@ -89,7 +91,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(84, 260);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(220, 193);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -124,7 +126,7 @@
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxPassword.Location = new System.Drawing.Point(568, 171);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(224, 43);
             this.textBoxPassword.TabIndex = 6;
@@ -134,7 +136,7 @@
             // 
             this.textBoxusrName.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.textBoxusrName.Location = new System.Drawing.Point(568, 107);
-            this.textBoxusrName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxusrName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxusrName.Name = "textBoxusrName";
             this.textBoxusrName.Size = new System.Drawing.Size(224, 43);
             this.textBoxusrName.TabIndex = 5;
@@ -145,7 +147,7 @@
             this.panel2.Controls.Add(this.radioButtonIns);
             this.panel2.Controls.Add(this.radioButtonStu);
             this.panel2.Location = new System.Drawing.Point(516, 257);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(179, 123);
             this.panel2.TabIndex = 9;
@@ -156,7 +158,7 @@
             this.radioButtonIns.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.radioButtonIns.ForeColor = System.Drawing.Color.MidnightBlue;
             this.radioButtonIns.Location = new System.Drawing.Point(27, 68);
-            this.radioButtonIns.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonIns.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonIns.Name = "radioButtonIns";
             this.radioButtonIns.Size = new System.Drawing.Size(134, 39);
             this.radioButtonIns.TabIndex = 1;
@@ -170,7 +172,7 @@
             this.radioButtonStu.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.radioButtonStu.ForeColor = System.Drawing.Color.MidnightBlue;
             this.radioButtonStu.Location = new System.Drawing.Point(27, 21);
-            this.radioButtonStu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonStu.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonStu.Name = "radioButtonStu";
             this.radioButtonStu.Size = new System.Drawing.Size(115, 39);
             this.radioButtonStu.TabIndex = 0;
@@ -184,7 +186,7 @@
             this.btnLogin.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
             this.btnLogin.Location = new System.Drawing.Point(503, 422);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(225, 57);
             this.btnLogin.TabIndex = 10;
@@ -205,6 +207,17 @@
             this.label5.Text = "X";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(109, 513);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(171, 17);
+            this.label6.TabIndex = 3;
+            this.label6.Text = " © copyright, Prism Team ";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -220,7 +233,7 @@
             this.Controls.Add(this.textBoxusrName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -249,6 +262,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

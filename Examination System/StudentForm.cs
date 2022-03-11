@@ -84,7 +84,8 @@ namespace Examination_System
             }
             else
             {
-                MessageBox.Show("please choose topic and course !!");
+                MessageBoxD ms = new MessageBoxD("!! please choose topic and course of exam");
+                ms.Show();
             }
 
 
