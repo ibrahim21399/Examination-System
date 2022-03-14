@@ -47,9 +47,9 @@
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 98);
+            this.panel1.Location = new System.Drawing.Point(0, 115);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1543, 310);
+            this.panel1.Size = new System.Drawing.Size(1543, 293);
             this.panel1.TabIndex = 0;
             // 
             // radioButton4
@@ -127,7 +127,7 @@
             this.QesdescLabel.AutoSize = true;
             this.QesdescLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QesdescLabel.ForeColor = System.Drawing.Color.White;
-            this.QesdescLabel.Location = new System.Drawing.Point(101, 32);
+            this.QesdescLabel.Location = new System.Drawing.Point(105, 32);
             this.QesdescLabel.Name = "QesdescLabel";
             this.QesdescLabel.Size = new System.Drawing.Size(99, 32);
             this.QesdescLabel.TabIndex = 3;

@@ -31,7 +31,7 @@ namespace Examination_System
 
         public void listQuestions()
         {
-
+            
             exam_id =  (int)((ef.randomExam(crsId)).First()) ;
             for (int i = 0; i < QuestionList.Length; i++)
             {
@@ -44,8 +44,22 @@ namespace Examination_System
                 }
                 QuestionList[i] = new QControl();
                 QuestionList[i].QuesNum = (i + 1);
-                QuestionList[i].QuesDesc = quesdesc;
-                if(qtype=="T/F")
+                if (quesdesc.Contains("/ "))
+                {
+                    string[] d = quesdesc.Split(new[] { "/ " }, StringSplitOptions.None);
+                    string first = d[0];
+                    string secnd = d[1];
+                    string Q = $"{first} \n {secnd}";
+                    QuestionList[i].QuesDesc = Q;
+                }
+                else
+                {
+                    QuestionList[i].QuesDesc = quesdesc;
+                }
+
+
+
+                if (qtype=="T/F")
                 {
                     QuestionList[i].chkFlag(true);
                 }
