@@ -15,5 +15,6 @@ namespace Examination_System
     {
         public string Q_desc { get; set; }
         public string Q_type { get; set; }
+        public int Q_Id { get; set; }
     }
 }

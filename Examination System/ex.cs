@@ -14,6 +14,7 @@ namespace Examination_System
     {
         string quesdesc;
         string qtype;
+        int qid;
         string subName;
         int crsId;
         int exam_id;
@@ -36,11 +37,13 @@ namespace Examination_System
             for (int i = 0; i < QuestionList.Length; i++)
             {
 
-                var Ques =ef.getQue(exam_id, i + 1);
-                foreach(var u in Ques)
+                var Ques =ef.getQue(exam_id, i + 1); // to get question 
+                
+                foreach (var u in Ques)
                 {
                     quesdesc = u.Q_desc;
                     qtype = u.Q_type;
+                    qid = u.Q_Id; 
                 }
                 QuestionList[i] = new QControl();
                 QuestionList[i].QuesNum = (i + 1);
@@ -59,12 +62,19 @@ namespace Examination_System
                 if (qtype=="T/F")
                 {
                     QuestionList[i].chkFlag(true);
+                    QuestionList[i].c1 = "(a) True" ;
+                    QuestionList[i].c2 = "(b) False" ;
                 }
-                else
+                else  // mcq
                 {
+                    QuestionList[i].c1 = "(a) "+(ef.getChoiceA(qid)).First();
+                    QuestionList[i].c2 = "(b) "+(ef.getChoiceB(qid)).First();
+                    QuestionList[i].c3 = "(c) "+(ef.getChoiceC(qid)).First();
+                    QuestionList[i].c4 = "(d) "+(ef.getChoiceD(qid)).First();
+
                     QuestionList[i].chkFlag(false);
                 }
-
+                
                 //comlete data from database
 
             }

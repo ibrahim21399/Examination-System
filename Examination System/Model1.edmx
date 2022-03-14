@@ -1169,6 +1169,7 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         <ComplexType Name="getQue_Result">
           <Property Type="String" Name="Q_desc" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="Q_type" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="Q_Id" Nullable="false" />
         </ComplexType>
         <ComplexType Name="Ins_Crs_Report_Result">
           <Property Type="String" Name="Crs_Name" Nullable="true" MaxLength="20" />
@@ -1413,6 +1414,7 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
               <ComplexTypeMapping TypeName="Online_Examination_SystemModel.getQue_Result">
                 <ScalarProperty Name="Q_desc" ColumnName="Q_desc" />
                 <ScalarProperty Name="Q_type" ColumnName="Q_type" />
+                <ScalarProperty Name="Q_Id" ColumnName="Q_Id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
