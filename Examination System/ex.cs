@@ -56,9 +56,6 @@ namespace Examination_System
                 {
                     QuestionList[i].QuesDesc = quesdesc;
                 }
-
-
-
                 if (qtype=="T/F")
                 {
                     QuestionList[i].chkFlag(true);
