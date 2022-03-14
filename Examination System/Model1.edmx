@@ -376,8 +376,8 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         </Function>
         <Function Name="GenerateExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="examCrsName" Type="varchar" Mode="In" />
-          <Parameter Name="MCQNo" Type="int" Mode="In" />
-          <Parameter Name="TFNo" Type="int" Mode="In" />
+          <Parameter Name="p__MCQ" Type="int" Mode="In" />
+          <Parameter Name="p__TF" Type="int" Mode="In" />
         </Function>
         <Function Name="GenerateMCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="examCrsName" Type="varchar" Mode="In" />
@@ -386,6 +386,22 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         <Function Name="GenerateTF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="examCrsName" Type="varchar" Mode="In" />
           <Parameter Name="p__TF" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getChoiceA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Q_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getChoiceB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Q_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getChoiceC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Q_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getChoiceD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Q_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getQue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Exam_Id" Type="int" Mode="In" />
+          <Parameter Name="Q_number" Type="int" Mode="In" />
         </Function>
         <Function Name="Ins_Crs_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ins_id" Type="int" Mode="In" />
@@ -464,6 +480,9 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         <Function Name="question_update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="q_id" Type="int" Mode="In" />
           <Parameter Name="q_ans" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="randomExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="crs_id" Type="int" Mode="In" />
         </Function>
         <Function Name="ReportStudentExamAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ExamNum" Type="int" Mode="In" />
@@ -976,8 +995,8 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           </FunctionImport>
           <FunctionImport Name="GenerateExam">
             <Parameter Name="examCrsName" Mode="In" Type="String" />
-            <Parameter Name="MCQNo" Mode="In" Type="Int32" />
-            <Parameter Name="TFNo" Mode="In" Type="Int32" />
+            <Parameter Name="p__MCQ" Mode="In" Type="Int32" />
+            <Parameter Name="p__TF" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GenerateMCQ" ReturnType="Collection(Int32)">
             <Parameter Name="examCrsName" Mode="In" Type="String" />
@@ -986,6 +1005,22 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <FunctionImport Name="GenerateTF" ReturnType="Collection(Int32)">
             <Parameter Name="examCrsName" Mode="In" Type="String" />
             <Parameter Name="p__TF" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getChoiceA" ReturnType="Collection(String)">
+            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getChoiceB" ReturnType="Collection(String)">
+            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getChoiceC" ReturnType="Collection(String)">
+            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getChoiceD" ReturnType="Collection(String)">
+            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getQue" ReturnType="Collection(Online_Examination_SystemModel.getQue_Result)">
+            <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
+            <Parameter Name="Q_number" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Ins_Crs_Report" ReturnType="Collection(Online_Examination_SystemModel.Ins_Crs_Report_Result)">
             <Parameter Name="ins_id" Mode="In" Type="Int32" />
@@ -1065,6 +1100,9 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="q_id" Mode="In" Type="Int32" />
             <Parameter Name="q_ans" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="randomExam" ReturnType="Collection(Int32)">
+            <Parameter Name="crs_id" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="ReportStudentExamAnswer" ReturnType="Collection(Online_Examination_SystemModel.ReportStudentExamAnswer_Result)">
             <Parameter Name="ExamNum" Mode="In" Type="Int32" />
             <Parameter Name="StdID" Mode="In" Type="Int32" />
@@ -1127,6 +1165,10 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         <ComplexType Name="ExamANDChoices_Result">
           <Property Type="String" Name="Q_desc" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="Choice_Desc" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getQue_Result">
+          <Property Type="String" Name="Q_desc" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="Q_type" Nullable="false" MaxLength="10" />
         </ComplexType>
         <ComplexType Name="Ins_Crs_Report_Result">
           <Property Type="String" Name="Crs_Name" Nullable="true" MaxLength="20" />
@@ -1362,6 +1404,18 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <FunctionImportMapping FunctionImportName="GenerateExam" FunctionName="Online_Examination_SystemModel.Store.GenerateExam" />
           <FunctionImportMapping FunctionImportName="GenerateMCQ" FunctionName="Online_Examination_SystemModel.Store.GenerateMCQ" />
           <FunctionImportMapping FunctionImportName="GenerateTF" FunctionName="Online_Examination_SystemModel.Store.GenerateTF" />
+          <FunctionImportMapping FunctionImportName="getChoiceA" FunctionName="Online_Examination_SystemModel.Store.getChoiceA" />
+          <FunctionImportMapping FunctionImportName="getChoiceB" FunctionName="Online_Examination_SystemModel.Store.getChoiceB" />
+          <FunctionImportMapping FunctionImportName="getChoiceC" FunctionName="Online_Examination_SystemModel.Store.getChoiceC" />
+          <FunctionImportMapping FunctionImportName="getChoiceD" FunctionName="Online_Examination_SystemModel.Store.getChoiceD" />
+          <FunctionImportMapping FunctionImportName="getQue" FunctionName="Online_Examination_SystemModel.Store.getQue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Online_Examination_SystemModel.getQue_Result">
+                <ScalarProperty Name="Q_desc" ColumnName="Q_desc" />
+                <ScalarProperty Name="Q_type" ColumnName="Q_type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Ins_Crs_Report" FunctionName="Online_Examination_SystemModel.Store.Ins_Crs_Report">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Online_Examination_SystemModel.Ins_Crs_Report_Result">
@@ -1385,6 +1439,7 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <FunctionImportMapping FunctionImportName="LoginRegInstructor" FunctionName="Online_Examination_SystemModel.Store.LoginRegInstructor" />
           <FunctionImportMapping FunctionImportName="LoginRegStd" FunctionName="Online_Examination_SystemModel.Store.LoginRegStd" />
           <FunctionImportMapping FunctionImportName="question_update" FunctionName="Online_Examination_SystemModel.Store.question_update" />
+          <FunctionImportMapping FunctionImportName="randomExam" FunctionName="Online_Examination_SystemModel.Store.randomExam" />
           <FunctionImportMapping FunctionImportName="ReportStudentExamAnswer" FunctionName="Online_Examination_SystemModel.Store.ReportStudentExamAnswer">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Online_Examination_SystemModel.ReportStudentExamAnswer_Result">

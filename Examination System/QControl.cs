@@ -12,6 +12,7 @@ namespace Examination_System
 {
     public partial class QControl : UserControl
     {
+        
         public QControl()
         {
             InitializeComponent();
@@ -23,6 +24,45 @@ namespace Examination_System
         private string _C2;
         private string _C3;
         private string _C4;
+        private char _Ans;
+
+        
+
+            
+        public char GetAns()
+        {
+            if (radioButton1.Checked == true)
+            {
+                _Ans = 'A';
+            }
+            else if (radioButton2.Checked== true)
+            {
+                _Ans = 'B';
+            }
+            else if (radioButton3.Checked == true)
+            {
+                _Ans = 'C';
+            }
+            else if (radioButton4.Checked == true)
+            {
+                _Ans = 'D';
+            }
+            return _Ans;
+
+        }
+        public void chkFlag(Boolean _flag)
+        {
+            if (_flag == true)
+            {
+                radioButton3.Visible = false;
+                radioButton4.Visible = false;
+            }
+            else
+            {
+                radioButton3.Visible = true;
+                radioButton4.Visible = true;
+            }
+        } 
 
         public int QuesNum
         {
@@ -55,5 +95,13 @@ namespace Examination_System
             get { return _C4; }
             set { _C4 = value; radioButton4.Text = value; }
         }
+        
+        public char Ans
+        {
+            get { return _Ans; }
+            set { _Ans = value; }
+        }
+      
+
     }
 }
