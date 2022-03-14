@@ -37,6 +37,7 @@ namespace Examination_System
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnStartExam = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -126,12 +127,27 @@ namespace Examination_System
             this.label1.Size = new System.Drawing.Size(0, 35);
             this.label1.TabIndex = 21;
             // 
+            // btnStartExam
+            // 
+            this.btnStartExam.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnStartExam.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.btnStartExam.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnStartExam.Location = new System.Drawing.Point(301, 432);
+            this.btnStartExam.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStartExam.Name = "btnStartExam";
+            this.btnStartExam.Size = new System.Drawing.Size(225, 57);
+            this.btnStartExam.TabIndex = 22;
+            this.btnStartExam.Text = "Reports";
+            this.btnStartExam.UseVisualStyleBackColor = false;
+            this.btnStartExam.Click += new System.EventHandler(this.BtnStartExam_Click);
+            // 
             // InstructorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Examination_System.Properties.Resources.style_2_5;
             this.ClientSize = new System.Drawing.Size(827, 539);
+            this.Controls.Add(this.btnStartExam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
@@ -159,5 +175,6 @@ namespace Examination_System
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnStartExam;
     }
 }

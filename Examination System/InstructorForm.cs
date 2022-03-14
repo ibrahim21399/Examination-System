@@ -21,6 +21,10 @@ namespace Examination_System
             label1.Text = "Hello ," + instructor.ins_Name + "  ,your id is  " + instructor.ins_Id + " and you dept_id is  " + instructor.Dept_Id;
         }
 
+        public InstructorForm()
+        {
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,6 +33,14 @@ namespace Examination_System
         private void InstructorForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnStartExam_Click(object sender, EventArgs e)
+        {
+            R reports = new R();
+            reports.Show();
+            this.Hide();
+                        
         }
     }
 
