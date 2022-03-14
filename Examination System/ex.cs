@@ -80,7 +80,22 @@ namespace Examination_System
             listQuestions();
             if (count<9)
             {
+                if(count==8)
+                {
+                    btnNext.Enabled = false;
+                }
+                else
+                {
+                    btnNext.Enabled = true;
+                    btnprev.Enabled = true;
+                }
                 count++;
+            }
+            else if(count >=8)
+            {
+                btnNext.Enabled = false;
+                btnprev.Enabled = true;
+
             }
             panel1.Controls.Add(QuestionList[count]);
 
@@ -91,10 +106,23 @@ namespace Examination_System
             listQuestions();
             if (count > 0)
             {
+                if (count ==1)
+                {
+                    btnprev.Enabled = false;
+                }
+                else
+                {
+                    btnNext.Enabled = true;
+                    btnprev.Enabled = true;
+                }
                 count--;
             }
+            else if (count<=1)
+            {
+                btnprev.Enabled = false;
+                btnNext.Enabled = true;
+            }
             panel1.Controls.Add(QuestionList[count]);
-            
         }
 
         private void Ex_Load(object sender, EventArgs e)
