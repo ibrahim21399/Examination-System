@@ -38,6 +38,13 @@ namespace Examination_System
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnStartExam = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxsub = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,7 +139,7 @@ namespace Examination_System
             this.btnStartExam.BackColor = System.Drawing.Color.MidnightBlue;
             this.btnStartExam.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
             this.btnStartExam.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnStartExam.Location = new System.Drawing.Point(301, 432);
+            this.btnStartExam.Location = new System.Drawing.Point(539, 423);
             this.btnStartExam.Margin = new System.Windows.Forms.Padding(4);
             this.btnStartExam.Name = "btnStartExam";
             this.btnStartExam.Size = new System.Drawing.Size(225, 57);
@@ -141,12 +148,95 @@ namespace Examination_System
             this.btnStartExam.UseVisualStyleBackColor = false;
             this.btnStartExam.Click += new System.EventHandler(this.BtnStartExam_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.SystemColors.Info;
+            this.button1.Location = new System.Drawing.Point(120, 423);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(225, 57);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Generate Exam";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // comboBoxsub
+            // 
+            this.comboBoxsub.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.comboBoxsub.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.comboBoxsub.FormattingEnabled = true;
+            this.comboBoxsub.Location = new System.Drawing.Point(331, 118);
+            this.comboBoxsub.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxsub.Name = "comboBoxsub";
+            this.comboBoxsub.Size = new System.Drawing.Size(245, 43);
+            this.comboBoxsub.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label2.Location = new System.Drawing.Point(104, 126);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 35);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Choose the Subject";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label3.Location = new System.Drawing.Point(174, 203);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(130, 35);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "No. of MCQ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label7.Location = new System.Drawing.Point(174, 279);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 35);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "No. of T/F";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(344, 210);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 28);
+            this.textBox1.TabIndex = 28;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(344, 286);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 28);
+            this.textBox2.TabIndex = 29;
+            // 
             // InstructorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Examination_System.Properties.Resources.style_2_5;
             this.ClientSize = new System.Drawing.Size(827, 539);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.comboBoxsub);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStartExam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox3);
@@ -176,5 +266,12 @@ namespace Examination_System
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnStartExam;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBoxsub;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
