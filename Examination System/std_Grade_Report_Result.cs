@@ -13,7 +13,7 @@ namespace Examination_System
     
     public partial class std_Grade_Report_Result
     {
-        public int Grade { get; set; }
+        public Nullable<int> Grade { get; set; }
         public string Crs_Name { get; set; }
     }
 }

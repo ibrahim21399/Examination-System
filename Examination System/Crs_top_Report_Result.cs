@@ -11,12 +11,9 @@ namespace Examination_System
 {
     using System;
     
-    public partial class SelectExam_Result
+    public partial class Crs_top_Report_Result
     {
-        public int Exam_Id { get; set; }
-        public Nullable<System.DateTime> Exam_Date { get; set; }
-        public Nullable<int> Std_Id { get; set; }
-        public Nullable<int> Crs_Id { get; set; }
-        public Nullable<int> Grade { get; set; }
+        public string Top_Name { get; set; }
+        public string Crs_name { get; set; }
     }
 }

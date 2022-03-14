@@ -12,9 +12,12 @@ namespace Examination_System
 {
     public partial class ex : Form
     {
-        public ex()
+        string subName;
+        public ex(string s)
         {
             InitializeComponent();
+            subName = s;
+            MessageBox.Show(s);
         }
         QControl[] QuestionList = new QControl[10];
 

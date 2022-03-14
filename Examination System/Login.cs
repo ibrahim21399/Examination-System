@@ -17,8 +17,6 @@ namespace Examination_System
         {
             InitializeComponent();
             DB = new Online_Examination_SystemEntities();
-           
-
         }
 
         private void button1_MouseHover(object sender, EventArgs e)

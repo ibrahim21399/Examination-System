@@ -33,11 +33,11 @@
           <Key>
             <PropertyRef Name="Exam_Id" />
           </Key>
-          <Property Name="Exam_Id" Type="int" Nullable="false" />
+          <Property Name="Exam_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Exam_Date" Type="date" />
           <Property Name="Std_Id" Type="int" />
           <Property Name="Crs_Id" Type="int" />
-          <Property Name="Grade" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="int" />
         </EntityType>
         <EntityType Name="Exam_Q">
           <Key>
@@ -94,6 +94,42 @@
           <Property Name="Std_Username" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Std_Password" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Dept_Id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Online_Examination_System.dbo.test' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test">
+          <Property Name="random_Q" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Online_Examination_System.dbo.test1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test1">
+          <Property Name="random_Q" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Online_Examination_System.dbo.test2' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test2">
+          <Property Name="random_Q" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Online_Examination_System.dbo.test3' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test3">
+          <Property Name="Counter" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="test4">
+          <Property Name="q_id" Type="int" />
+          <Property Name="id" Type="int" />
+        </EntityType>-->
+        <EntityType Name="test5">
+          <Key>
+            <PropertyRef Name="Exam_Id" />
+            <PropertyRef Name="Q_Id" />
+          </Key>
+          <Property Name="Exam_Id" Type="int" Nullable="false" />
+          <Property Name="Q_Id" Type="int" Nullable="false" />
+          <Property Name="Q_Number" Type="int" />
+          <Property Name="Checked_Ans" Type="varchar" MaxLength="1" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -174,6 +210,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Exam_Exam_QFKt5">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="test5" Type="Self.test5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="Exam_Id" />
+            </Principal>
+            <Dependent Role="test5">
+              <PropertyRef Name="Exam_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Exam_StudFK">
           <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
@@ -230,6 +278,18 @@
               <PropertyRef Name="Q_Id" />
             </Principal>
             <Dependent Role="Exam_Q">
+              <PropertyRef Name="Q_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Q_Exam_QFKt5">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="test5" Type="Self.test5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Q_Id" />
+            </Principal>
+            <Dependent Role="test5">
               <PropertyRef Name="Q_Id" />
             </Dependent>
           </ReferentialConstraint>
@@ -313,6 +373,19 @@
         <Function Name="ExamCorrection1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ExamNum" Type="int" Mode="In" />
           <Parameter Name="StdtID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GenerateExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="examCrsName" Type="varchar" Mode="In" />
+          <Parameter Name="MCQNo" Type="int" Mode="In" />
+          <Parameter Name="TFNo" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GenerateMCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="examCrsName" Type="varchar" Mode="In" />
+          <Parameter Name="p__MCQ" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GenerateTF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="examCrsName" Type="varchar" Mode="In" />
+          <Parameter Name="p__TF" Type="int" Mode="In" />
         </Function>
         <Function Name="Ins_Crs_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ins_id" Type="int" Mode="In" />
@@ -432,7 +505,9 @@
         <Function Name="SelectTopic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="top_id" Type="int" Mode="In" />
         </Function>
-        <Function Name="std_Dept_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="std_Dept_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Dept_Id" Type="int" Mode="In" />
+        </Function>
         <Function Name="std_Grade_Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="std_id" Type="int" Mode="In" />
         </Function>
@@ -455,6 +530,7 @@
           <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stu_Crs" EntityType="Self.Stu_Crs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="test5" EntityType="Self.test5" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Choice_QFK" Association="Self.Choice_QFK">
             <End Role="Question" EntitySet="Question" />
@@ -480,6 +556,10 @@
             <End Role="Exam" EntitySet="Exam" />
             <End Role="Exam_Q" EntitySet="Exam_Q" />
           </AssociationSet>
+          <AssociationSet Name="Exam_Exam_QFKt5" Association="Self.Exam_Exam_QFKt5">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="test5" EntitySet="test5" />
+          </AssociationSet>
           <AssociationSet Name="Exam_StudFK" Association="Self.Exam_StudFK">
             <End Role="Student" EntitySet="Student" />
             <End Role="Exam" EntitySet="Exam" />
@@ -499,6 +579,10 @@
           <AssociationSet Name="Q_Exam_QFK" Association="Self.Q_Exam_QFK">
             <End Role="Question" EntitySet="Question" />
             <End Role="Exam_Q" EntitySet="Exam_Q" />
+          </AssociationSet>
+          <AssociationSet Name="Q_Exam_QFKt5" Association="Self.Q_Exam_QFKt5">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="test5" EntitySet="test5" />
           </AssociationSet>
           <AssociationSet Name="Std_Std_CrsFK" Association="Self.Std_Std_CrsFK">
             <End Role="Student" EntitySet="Student" />
@@ -550,13 +634,14 @@
           <Key>
             <PropertyRef Name="Exam_Id" />
           </Key>
-          <Property Name="Exam_Id" Type="Int32" Nullable="false" />
+          <Property Name="Exam_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Exam_Date" Type="DateTime" Precision="0" />
           <Property Name="Std_Id" Type="Int32" />
           <Property Name="Crs_Id" Type="Int32" />
-          <Property Name="Grade" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="Int32" />
           <NavigationProperty Name="Course" Relationship="Self.Exam_CrsFK" FromRole="Exam" ToRole="Course" />
           <NavigationProperty Name="Exam_Q" Relationship="Self.Exam_Exam_QFK" FromRole="Exam" ToRole="Exam_Q" />
+          <NavigationProperty Name="test5" Relationship="Self.Exam_Exam_QFKt5" FromRole="Exam" ToRole="test5" />
           <NavigationProperty Name="Student" Relationship="Self.Exam_StudFK" FromRole="Exam" ToRole="Student" />
         </EntityType>
         <EntityType Name="Exam_Q">
@@ -595,6 +680,7 @@
           <NavigationProperty Name="Choices" Relationship="Self.Choice_QFK" FromRole="Question" ToRole="Choice" />
           <NavigationProperty Name="Course" Relationship="Self.Q_CrsFK" FromRole="Question" ToRole="Course" />
           <NavigationProperty Name="Exam_Q" Relationship="Self.Q_Exam_QFK" FromRole="Question" ToRole="Exam_Q" />
+          <NavigationProperty Name="test5" Relationship="Self.Q_Exam_QFKt5" FromRole="Question" ToRole="test5" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -608,6 +694,18 @@
           <NavigationProperty Name="Department" Relationship="Self.Stud_DeptFK" FromRole="Student" ToRole="Department" />
           <NavigationProperty Name="Exams" Relationship="Self.Exam_StudFK" FromRole="Student" ToRole="Exam" />
           <NavigationProperty Name="Courses" Relationship="Self.Stu_Crs" FromRole="Student" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="test5">
+          <Key>
+            <PropertyRef Name="Exam_Id" />
+            <PropertyRef Name="Q_Id" />
+          </Key>
+          <Property Name="Exam_Id" Type="Int32" Nullable="false" />
+          <Property Name="Q_Id" Type="Int32" Nullable="false" />
+          <Property Name="Q_Number" Type="Int32" />
+          <Property Name="Checked_Ans" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Exam" Relationship="Self.Exam_Exam_QFKt5" FromRole="test5" ToRole="Exam" />
+          <NavigationProperty Name="Question" Relationship="Self.Q_Exam_QFKt5" FromRole="test5" ToRole="Question" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
@@ -701,6 +799,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Exam_Exam_QFKt5">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="test5" Type="Self.test5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="Exam_Id" />
+            </Principal>
+            <Dependent Role="test5">
+              <PropertyRef Name="Exam_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Exam_StudFK">
           <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
@@ -725,6 +835,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Q_Exam_QFKt5">
+          <End Role="Question" Type="Self.Question" Multiplicity="1" />
+          <End Role="test5" Type="Self.test5" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="Q_Id" />
+            </Principal>
+            <Dependent Role="test5">
+              <PropertyRef Name="Q_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Ins_Crs">
           <End Role="Course" Type="Self.Course" Multiplicity="*" />
           <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
@@ -742,6 +864,7 @@
           <EntitySet Name="Instructors" EntityType="Self.Instructor" />
           <EntitySet Name="Questions" EntityType="Self.Question" />
           <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="test5" EntityType="Self.test5" />
           <EntitySet Name="Topics" EntityType="Self.Topic" />
           <AssociationSet Name="Choice_QFK" Association="Self.Choice_QFK">
             <End Role="Question" EntitySet="Questions" />
@@ -771,6 +894,10 @@
             <End Role="Exam" EntitySet="Exams" />
             <End Role="Exam_Q" EntitySet="Exam_Q" />
           </AssociationSet>
+          <AssociationSet Name="Exam_Exam_QFKt5" Association="Self.Exam_Exam_QFKt5">
+            <End Role="Exam" EntitySet="Exams" />
+            <End Role="test5" EntitySet="test5" />
+          </AssociationSet>
           <AssociationSet Name="Exam_StudFK" Association="Self.Exam_StudFK">
             <End Role="Student" EntitySet="Students" />
             <End Role="Exam" EntitySet="Exams" />
@@ -778,6 +905,10 @@
           <AssociationSet Name="Q_Exam_QFK" Association="Self.Q_Exam_QFK">
             <End Role="Question" EntitySet="Questions" />
             <End Role="Exam_Q" EntitySet="Exam_Q" />
+          </AssociationSet>
+          <AssociationSet Name="Q_Exam_QFKt5" Association="Self.Q_Exam_QFKt5">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="test5" EntitySet="test5" />
           </AssociationSet>
           <AssociationSet Name="Ins_Crs" Association="Self.Ins_Crs">
             <End Role="Course" EntitySet="Courses" />
@@ -791,7 +922,7 @@
             <Parameter Name="crs_id" Mode="In" Type="Int32" />
             <Parameter Name="crs_name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Crs_top_Report" ReturnType="Collection(String)">
+          <FunctionImport Name="Crs_top_Report" ReturnType="Collection(Online_Examination_SystemModel.Crs_top_Report_Result)">
             <Parameter Name="Crs_Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteChoice" ReturnType="Collection(String)">
@@ -842,6 +973,19 @@
           <FunctionImport Name="ExamCorrection1">
             <Parameter Name="ExamNum" Mode="In" Type="Int32" />
             <Parameter Name="StdtID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GenerateExam">
+            <Parameter Name="examCrsName" Mode="In" Type="String" />
+            <Parameter Name="MCQNo" Mode="In" Type="Int32" />
+            <Parameter Name="TFNo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GenerateMCQ" ReturnType="Collection(Int32)">
+            <Parameter Name="examCrsName" Mode="In" Type="String" />
+            <Parameter Name="p__MCQ" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GenerateTF" ReturnType="Collection(Int32)">
+            <Parameter Name="examCrsName" Mode="In" Type="String" />
+            <Parameter Name="p__TF" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Ins_Crs_Report" ReturnType="Collection(Online_Examination_SystemModel.Ins_Crs_Report_Result)">
             <Parameter Name="ins_id" Mode="In" Type="Int32" />
@@ -961,7 +1105,9 @@
           <FunctionImport Name="SelectTopic" ReturnType="Collection(Online_Examination_SystemModel.SelectTopic_Result)">
             <Parameter Name="top_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="std_Dept_Report" ReturnType="Collection(Online_Examination_SystemModel.std_Dept_Report_Result)" />
+          <FunctionImport Name="std_Dept_Report" ReturnType="Collection(Online_Examination_SystemModel.std_Dept_Report_Result)">
+            <Parameter Name="Dept_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="std_Grade_Report" ReturnType="Collection(Online_Examination_SystemModel.std_Grade_Report_Result)">
             <Parameter Name="std_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -974,6 +1120,10 @@
             <Parameter Name="top_name" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="Crs_top_Report_Result">
+          <Property Type="String" Name="Top_Name" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Crs_name" Nullable="true" MaxLength="20" />
+        </ComplexType>
         <ComplexType Name="ExamANDChoices_Result">
           <Property Type="String" Name="Q_desc" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="Choice_Desc" Nullable="true" />
@@ -1007,7 +1157,7 @@
           <Property Type="DateTime" Name="Exam_Date" Nullable="true" />
           <Property Type="Int32" Name="Std_Id" Nullable="true" />
           <Property Type="Int32" Name="Crs_Id" Nullable="true" />
-          <Property Type="Int32" Name="Grade" Nullable="false" />
+          <Property Type="Int32" Name="Grade" Nullable="true" />
         </ComplexType>
         <ComplexType Name="SelectExamQ_Result">
           <Property Type="Int32" Name="Exam_Id" Nullable="false" />
@@ -1057,7 +1207,7 @@
           <Property Type="String" Name="Dept_Name" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="std_Grade_Report_Result">
-          <Property Type="Int32" Name="Grade" Nullable="false" />
+          <Property Type="Int32" Name="Grade" Nullable="true" />
           <Property Type="String" Name="Crs_Name" Nullable="true" MaxLength="20" />
         </ComplexType>
       </Schema>
@@ -1147,6 +1297,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="test5">
+            <EntityTypeMapping TypeName="Online_Examination_SystemModel.test5">
+              <MappingFragment StoreEntitySet="test5">
+                <ScalarProperty Name="Exam_Id" ColumnName="Exam_Id" />
+                <ScalarProperty Name="Q_Id" ColumnName="Q_Id" />
+                <ScalarProperty Name="Q_Number" ColumnName="Q_Number" />
+                <ScalarProperty Name="Checked_Ans" ColumnName="Checked_Ans" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="Online_Examination_SystemModel.Topic">
               <MappingFragment StoreEntitySet="Topic">
@@ -1172,7 +1332,14 @@
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="Course_update" FunctionName="Online_Examination_SystemModel.Store.Course_update" />
-          <FunctionImportMapping FunctionImportName="Crs_top_Report" FunctionName="Online_Examination_SystemModel.Store.Crs_top_Report" />
+          <FunctionImportMapping FunctionImportName="Crs_top_Report" FunctionName="Online_Examination_SystemModel.Store.Crs_top_Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Online_Examination_SystemModel.Crs_top_Report_Result">
+                <ScalarProperty Name="Top_Name" ColumnName="Top_Name" />
+                <ScalarProperty Name="Crs_name" ColumnName="Crs_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="DeleteChoice" FunctionName="Online_Examination_SystemModel.Store.DeleteChoice" />
           <FunctionImportMapping FunctionImportName="DeleteCourse" FunctionName="Online_Examination_SystemModel.Store.DeleteCourse" />
           <FunctionImportMapping FunctionImportName="DeleteDepartment" FunctionName="Online_Examination_SystemModel.Store.DeleteDepartment" />
@@ -1192,6 +1359,9 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ExamCorrection1" FunctionName="Online_Examination_SystemModel.Store.ExamCorrection1" />
+          <FunctionImportMapping FunctionImportName="GenerateExam" FunctionName="Online_Examination_SystemModel.Store.GenerateExam" />
+          <FunctionImportMapping FunctionImportName="GenerateMCQ" FunctionName="Online_Examination_SystemModel.Store.GenerateMCQ" />
+          <FunctionImportMapping FunctionImportName="GenerateTF" FunctionName="Online_Examination_SystemModel.Store.GenerateTF" />
           <FunctionImportMapping FunctionImportName="Ins_Crs_Report" FunctionName="Online_Examination_SystemModel.Store.Ins_Crs_Report">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Online_Examination_SystemModel.Ins_Crs_Report_Result">

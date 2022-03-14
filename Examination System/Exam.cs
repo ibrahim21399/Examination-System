@@ -18,17 +18,20 @@ namespace Examination_System
         public Exam()
         {
             this.Exam_Q = new HashSet<Exam_Q>();
+            this.test5 = new HashSet<test5>();
         }
     
         public int Exam_Id { get; set; }
         public Nullable<System.DateTime> Exam_Date { get; set; }
         public Nullable<int> Std_Id { get; set; }
         public Nullable<int> Crs_Id { get; set; }
-        public int Grade { get; set; }
+        public Nullable<int> Grade { get; set; }
     
         public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Q> Exam_Q { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<test5> test5 { get; set; }
         public virtual Student Student { get; set; }
     }
 }

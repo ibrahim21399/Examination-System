@@ -19,6 +19,7 @@ namespace Examination_System
         {
             this.Choices = new HashSet<Choice>();
             this.Exam_Q = new HashSet<Exam_Q>();
+            this.test5 = new HashSet<test5>();
         }
     
         public int Q_Id { get; set; }
@@ -32,5 +33,7 @@ namespace Examination_System
         public virtual Course Course { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exam_Q> Exam_Q { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<test5> test5 { get; set; }
     }
 }

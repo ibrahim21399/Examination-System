@@ -75,12 +75,12 @@ namespace Examination_System
         private void BtnStartExam_Click(object sender, EventArgs e)
         {
             //check if there is an exam or not     **** take cake of it must handelled
-            ex test = new ex();
-            if (comboBoxTopic.Text != "" && comboBoxsub.Text !="")
+                string subj = comboBoxsub.Text;
+            if (comboBoxTopic.Text != "" && subj !="")
             {
+                ex test = new ex(subj);
                 test.Show();
                 this.Hide();
-
             }
             else
             {

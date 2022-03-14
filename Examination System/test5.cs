@@ -10,13 +10,16 @@
 namespace Examination_System
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class SelectExam_Result
+    public partial class test5
     {
         public int Exam_Id { get; set; }
-        public Nullable<System.DateTime> Exam_Date { get; set; }
-        public Nullable<int> Std_Id { get; set; }
-        public Nullable<int> Crs_Id { get; set; }
-        public Nullable<int> Grade { get; set; }
+        public int Q_Id { get; set; }
+        public Nullable<int> Q_Number { get; set; }
+        public string Checked_Ans { get; set; }
+    
+        public virtual Exam Exam { get; set; }
+        public virtual Question Question { get; set; }
     }
 }

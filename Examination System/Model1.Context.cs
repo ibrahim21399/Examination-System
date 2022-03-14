@@ -35,6 +35,7 @@ namespace Examination_System
         public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<test5> test5 { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
     
         public virtual int Course_update(Nullable<int> crs_id, string crs_name)
@@ -50,13 +51,13 @@ namespace Examination_System
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Course_update", crs_idParameter, crs_nameParameter);
         }
     
-        public virtual ObjectResult<string> Crs_top_Report(Nullable<int> crs_Id)
+        public virtual ObjectResult<Crs_top_Report_Result> Crs_top_Report(Nullable<int> crs_Id)
         {
             var crs_IdParameter = crs_Id.HasValue ?
                 new ObjectParameter("Crs_Id", crs_Id) :
                 new ObjectParameter("Crs_Id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Crs_top_Report", crs_IdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Crs_top_Report_Result>("Crs_top_Report", crs_IdParameter);
         }
     
         public virtual ObjectResult<string> DeleteChoice(Nullable<int> choiceId)
@@ -217,6 +218,49 @@ namespace Examination_System
                 new ObjectParameter("StdtID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ExamCorrection1", examNumParameter, stdtIDParameter);
+        }
+    
+        public virtual int GenerateExam(string examCrsName, Nullable<int> mCQNo, Nullable<int> tFNo)
+        {
+            var examCrsNameParameter = examCrsName != null ?
+                new ObjectParameter("examCrsName", examCrsName) :
+                new ObjectParameter("examCrsName", typeof(string));
+    
+            var mCQNoParameter = mCQNo.HasValue ?
+                new ObjectParameter("MCQNo", mCQNo) :
+                new ObjectParameter("MCQNo", typeof(int));
+    
+            var tFNoParameter = tFNo.HasValue ?
+                new ObjectParameter("TFNo", tFNo) :
+                new ObjectParameter("TFNo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GenerateExam", examCrsNameParameter, mCQNoParameter, tFNoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> GenerateMCQ(string examCrsName, Nullable<int> p__MCQ)
+        {
+            var examCrsNameParameter = examCrsName != null ?
+                new ObjectParameter("examCrsName", examCrsName) :
+                new ObjectParameter("examCrsName", typeof(string));
+    
+            var p__MCQParameter = p__MCQ.HasValue ?
+                new ObjectParameter("p__MCQ", p__MCQ) :
+                new ObjectParameter("p__MCQ", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GenerateMCQ", examCrsNameParameter, p__MCQParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> GenerateTF(string examCrsName, Nullable<int> p__TF)
+        {
+            var examCrsNameParameter = examCrsName != null ?
+                new ObjectParameter("examCrsName", examCrsName) :
+                new ObjectParameter("examCrsName", typeof(string));
+    
+            var p__TFParameter = p__TF.HasValue ?
+                new ObjectParameter("p__TF", p__TF) :
+                new ObjectParameter("p__TF", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GenerateTF", examCrsNameParameter, p__TFParameter);
         }
     
         public virtual ObjectResult<Ins_Crs_Report_Result> Ins_Crs_Report(Nullable<int> ins_id)
@@ -607,9 +651,13 @@ namespace Examination_System
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectTopic_Result>("SelectTopic", top_idParameter);
         }
     
-        public virtual ObjectResult<std_Dept_Report_Result> std_Dept_Report()
+        public virtual ObjectResult<std_Dept_Report_Result> std_Dept_Report(Nullable<int> dept_Id)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<std_Dept_Report_Result>("std_Dept_Report");
+            var dept_IdParameter = dept_Id.HasValue ?
+                new ObjectParameter("Dept_Id", dept_Id) :
+                new ObjectParameter("Dept_Id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<std_Dept_Report_Result>("std_Dept_Report", dept_IdParameter);
         }
     
         public virtual ObjectResult<std_Grade_Report_Result> std_Grade_Report(Nullable<int> std_id)

@@ -4,16 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="68718bdbda7343b5ae15da0488840ecd" Name="Diagram1">
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Choice" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Course" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Department" Width="1.5" PointX="1.375" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Exam" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Exam_Q" Width="1.5" PointX="7.5" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Instructor" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Question" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Student" Width="1.5" PointX="6.375" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="Online_Examination_SystemModel.Topic" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+      <Diagram DiagramId="69e2e198a61b438aae376725b9144520" Name="Diagram1">
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Choice" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Course" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Department" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Exam" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Exam_Q" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Instructor" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Question" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Student" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.test5" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.Topic" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <AssociationConnector Association="Online_Examination_SystemModel.Choice_QFK" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Crs_TopFK" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Exam_CrsFK" ManuallyRouted="false" />
@@ -21,8 +22,10 @@
         <AssociationConnector Association="Online_Examination_SystemModel.Ins_DeptFK" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Stud_DeptFK" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Exam_Exam_QFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Online_Examination_SystemModel.Exam_Exam_QFKt5" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Exam_StudFK" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Q_Exam_QFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Online_Examination_SystemModel.Q_Exam_QFKt5" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Ins_Crs" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Stu_Crs" ManuallyRouted="false" />
       </Diagram>
