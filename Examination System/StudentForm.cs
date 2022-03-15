@@ -22,7 +22,7 @@ namespace Examination_System
             InitializeComponent();
             Tables = new Online_Examination_SystemEntities();
             stu = s;
-            label1.Text ="Hello ," + stu.Std_Full_Name + "  ,your id is  " + stu.Std_Id + " and you dept_id is  " + stu.Dept_Id;
+            label1.Text ="Hello ," + stu.Std_Full_Name;
             comboBoxsub.Visible = false;
             stuId = stu.Std_Id;
 

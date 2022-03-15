@@ -13,9 +13,11 @@ namespace Examination_System
 {
     public partial class R : Form
     {
-        public R()
+        InstructorForm f;
+        public R(InstructorForm f)
         {
             InitializeComponent();
+            this.f = f;
         }
 
         private void R_Load(object sender, EventArgs e)
@@ -143,7 +145,12 @@ namespace Examination_System
                     break;
             }
         }
-
-
+        
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            
+            f.Show();
+        }
     }
 }

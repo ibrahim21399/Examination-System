@@ -25,7 +25,7 @@ namespace Examination_System
 
             instructor = ins;
 
-            label1.Text = "Hello ," + instructor.ins_Name + "  ,your id is  " + instructor.ins_Id + " and you dept_id is  " + instructor.Dept_Id;
+            label1.Text = "Hello ," + instructor.ins_Name ;
             var sub = from d in DB.Courses
                       select d.Crs_Name;
             foreach (var d in sub)
@@ -51,7 +51,7 @@ namespace Examination_System
 
         private void BtnStartExam_Click(object sender, EventArgs e)
         {
-            R reports = new R();
+            R reports = new R(this);
             reports.Show();
             this.Hide();
         }
