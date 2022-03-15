@@ -177,6 +177,9 @@ namespace Examination_System
           ef.Exam_Answers(exam_id, stuId, ans[0].ToString(), ans[1].ToString(), ans[2].ToString(), ans[3].ToString(), ans[4].ToString(), ans[5].ToString(), ans[6].ToString(), ans[7].ToString(), ans[8].ToString(), ans[9].ToString());
           MessageBoxD ms = new MessageBoxD("Submit done :) ");
           ms.Show();
+
+          int grade = ef.ExamCorrection1(exam_id,stuId);
+            MessageBox.Show(grade.ToString());
           this.Close();
         }
     }
