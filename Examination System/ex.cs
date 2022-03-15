@@ -18,12 +18,13 @@ namespace Examination_System
         string subName;
         int crsId;
         int exam_id;
+        char[] ans;
         public ex(string s ,int Ci)
         {
             InitializeComponent();
             subName = s;
             crsId = Ci;
-            MessageBox.Show(s);
+            ans = new char[10];
 
         }
         Online_Examination_SystemEntities ef = new Online_Examination_SystemEntities();
@@ -32,12 +33,10 @@ namespace Examination_System
 
         public void listQuestions()
         {
-            
             exam_id =  (int)((ef.randomExam(crsId)).First()) ;
             for (int i = 0; i < QuestionList.Length; i++)
             {
-
-                var Ques =ef.getQue(exam_id, i + 1); // to get question 
+                var Ques =ef.getQue(exam_id, i + 1); // to get question info
                 
                 foreach (var u in Ques)
                 {
@@ -74,9 +73,9 @@ namespace Examination_System
 
                     QuestionList[i].chkFlag(false);
                 }
-                
-                //comlete data from database
+                QuestionList[i].checkBtn = ans[i];
 
+                //comlete data from database
             }
         }
         
@@ -105,6 +104,8 @@ namespace Examination_System
 
             }
             panel1.Controls.Add(QuestionList[count]);
+            //QuestionList[count+1].checkBtn= ans[count+1];
+           
 
         }
         private void Btnprev_Click(object sender, EventArgs e)
@@ -130,15 +131,27 @@ namespace Examination_System
                 btnNext.Enabled = true;
             }
             panel1.Controls.Add(QuestionList[count]);
+            //QuestionList[count - 1].checkBtn = ans[count - 1];
+            //  ans[count] = QuestionList[count].GetAns();
+
         }
 
         private void Ex_Load(object sender, EventArgs e)
         {
             listQuestions();
             panel1.Controls.Add(QuestionList[0]);
+            btnprev.Enabled = false;
         }
-        private void Panel1_Paint(object sender, PaintEventArgs e)
+
+
+
+
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
+            ans[count] = QuestionList[count].GetAns();
+            
+
 
         }
     }

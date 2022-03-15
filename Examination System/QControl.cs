@@ -25,10 +25,11 @@ namespace Examination_System
         private string _C3;
         private string _C4;
         private char _Ans;
+        private char _check;
 
-        
 
-            
+
+
         public char GetAns()
         {
             if (radioButton1.Checked == true)
@@ -48,8 +49,10 @@ namespace Examination_System
                 _Ans = 'D';
             }
             return _Ans;
-
         }
+
+
+
         public void chkFlag(Boolean _flag)
         {
             if (_flag == true)
@@ -62,7 +65,29 @@ namespace Examination_System
                 radioButton3.Visible = true;
                 radioButton4.Visible = true;
             }
-        } 
+        }
+        public char checkBtn
+        {
+            get { return _check; }
+            set { _check = value; 
+                    if (_check =='A')
+                    {
+                        radioButton1.Checked = true; 
+                    }else if (_check == 'B')
+                    {
+                        radioButton2.Checked = true; 
+                    }
+                    else if (_check == 'C')
+                    {
+                        radioButton3.Checked = true;
+                    }
+                    else if (_check == 'D')
+                    {
+                        radioButton4.Checked = true;
+                    }
+            }
+                
+        }
 
         public int QuesNum
         {
@@ -101,7 +126,10 @@ namespace Examination_System
             get { return _Ans; }
             set { _Ans = value; }
         }
-      
 
+        private void panel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
