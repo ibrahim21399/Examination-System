@@ -12,6 +12,7 @@ namespace Examination_System
 {
     public partial class ex : Form
     {
+        int stuId;
         string quesdesc;
         string qtype;
         int qid;
@@ -19,13 +20,13 @@ namespace Examination_System
         int crsId;
         int exam_id;
         char[] ans;
-        public ex(string s ,int Ci)
+        public ex(string s ,int Ci , int stuid)
         {
             InitializeComponent();
             subName = s;
             crsId = Ci;
             ans = new char[10];
-
+            stuId = stuid;
         }
         Online_Examination_SystemEntities ef = new Online_Examination_SystemEntities();
         QControl[] QuestionList = new QControl[10];
@@ -144,15 +145,39 @@ namespace Examination_System
         }
 
 
-
-
-
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             ans[count] = QuestionList[count].GetAns();
+        }
+
+        private void button2_Click(object sender, EventArgs e) // submit button
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var Ques = ef.getQue(exam_id, i + 1); // to get question info
+                foreach (var u in Ques)
+                {
+                    quesdesc = u.Q_desc;
+                    qtype = u.Q_type;
+                    qid = u.Q_Id;
+                }
+                if (qtype== "T/F")
+                {
+                    if (ans[i] == 'A')
+                    {
+                        ans[i] = 'T';
+                    }
+                    else if (ans[i] == 'B')
+                    {
+                        ans[i] = 'F';
+                    }
+                }
+            }
             
-
-
+          ef.Exam_Answers(exam_id, stuId, ans[0].ToString(), ans[1].ToString(), ans[2].ToString(), ans[3].ToString(), ans[4].ToString(), ans[5].ToString(), ans[6].ToString(), ans[7].ToString(), ans[8].ToString(), ans[9].ToString());
+          MessageBoxD ms = new MessageBoxD("Submit done :) ");
+          ms.Show();
+          this.Close();
         }
     }
 }

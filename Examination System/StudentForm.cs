@@ -14,6 +14,7 @@ namespace Examination_System
     {
         Student stu;
         int topid;
+        int stuId;
         Online_Examination_SystemEntities Tables;
 
         public StudentForm(Student s)
@@ -23,6 +24,7 @@ namespace Examination_System
             stu = s;
             label1.Text ="Hello ," + stu.Std_Full_Name + "  ,your id is  " + stu.Std_Id + " and you dept_id is  " + stu.Dept_Id;
             comboBoxsub.Visible = false;
+            stuId = stu.Std_Id;
 
             try
             {
@@ -84,7 +86,7 @@ namespace Examination_System
 
                 if (coursfound != null)
                 {
-                    ex test = new ex(subj,coursid);
+                    ex test = new ex(subj,coursid, stuId);
                     test.Show();
                     this.Hide();
                 }
