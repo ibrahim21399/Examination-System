@@ -187,9 +187,9 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(163, 186);
+            this.comboBox2.Location = new System.Drawing.Point(172, 190);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.Size = new System.Drawing.Size(87, 24);
             this.comboBox2.TabIndex = 25;
             this.comboBox2.Visible = false;
             // 
