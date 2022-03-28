@@ -88,7 +88,7 @@ namespace Examination_System
                 case 5:
                     reportViewer1.ServerReport.ReportPath = "/Examination System Reports/Report6";
                     IList<Microsoft.Reporting.WinForms.ReportParameter> p4 = new List<Microsoft.Reporting.WinForms.ReportParameter>();
-                    p4.Add(new Microsoft.Reporting.WinForms.ReportParameter("ExamNum", textBox1.Text));
+                    p4.Add(new Microsoft.Reporting.WinForms.ReportParameter("ExamNum", comboBox2.Text));
                     p4.Add(new Microsoft.Reporting.WinForms.ReportParameter("StdID", textBox2.Text));
                     reportViewer1.ServerReport.SetParameters(p4);
                     reportViewer1.ShowParameterPrompts = false;
@@ -132,8 +132,9 @@ namespace Examination_System
                     P1label.Text = "Exam No.";
                     break;
                 case 5:
-                    textBox1.Visible = true;
+                    textBox1.Visible = false;
                     P1label.Visible = true;
+                    comboBox2.Visible = true;
                     P1label.Text = "Exam No.";
                     textBox2.Visible = true;
                     P2label.Visible = true;
