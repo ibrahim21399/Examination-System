@@ -13,11 +13,17 @@ namespace Examination_System
 {
     public partial class R : Form
     {
+        Online_Examination_SystemEntities db = new Online_Examination_SystemEntities();
         InstructorForm f;
         public R(InstructorForm f)
         {
             InitializeComponent();
             this.f = f;
+            var examNO = from d in db.Exams select d.Exam_Id;
+            foreach (var dd in examNO)
+            {
+                comboBox2.Items.Add(dd);
+            }
         }
 
         private void R_Load(object sender, EventArgs e)
