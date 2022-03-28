@@ -18,5 +18,6 @@ namespace Examination_System
         public string Q_desc { get; set; }
         public Nullable<int> Crs_Id { get; set; }
         public string Modal_Answer { get; set; }
+        public Nullable<int> flag { get; set; }
     }
 }

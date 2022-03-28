@@ -82,9 +82,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="checkedANswer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Choice.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -222,9 +219,6 @@
     </Compile>
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="test5.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Topic.cs">
       <DependentUpon>Model1.tt</DependentUpon>

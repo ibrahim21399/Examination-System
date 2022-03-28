@@ -16,5 +16,6 @@ namespace Examination_System
         public string Q_desc { get; set; }
         public string Checked_Ans { get; set; }
         public string Choice_Desc { get; set; }
+        public string Modal_Answer { get; set; }
     }
 }

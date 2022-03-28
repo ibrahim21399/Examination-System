@@ -35,9 +35,7 @@ namespace Examination_System
         public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<test5> test5 { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
-        public virtual DbSet<checkedANswer> checkedANswers { get; set; }
     
         public virtual int Course_update(Nullable<int> crs_id, string crs_name)
         {
@@ -221,21 +219,21 @@ namespace Examination_System
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ExamCorrection1", examNumParameter, stdtIDParameter);
         }
     
-        public virtual int GenerateExam(string examCrsName, Nullable<int> mCQNo, Nullable<int> tFNo)
+        public virtual int GenerateExam(string crs_name, Nullable<int> mCQ, Nullable<int> t_F)
         {
-            var examCrsNameParameter = examCrsName != null ?
-                new ObjectParameter("examCrsName", examCrsName) :
-                new ObjectParameter("examCrsName", typeof(string));
+            var crs_nameParameter = crs_name != null ?
+                new ObjectParameter("Crs_name", crs_name) :
+                new ObjectParameter("Crs_name", typeof(string));
     
-            var mCQNoParameter = mCQNo.HasValue ?
-                new ObjectParameter("MCQNo", mCQNo) :
-                new ObjectParameter("MCQNo", typeof(int));
+            var mCQParameter = mCQ.HasValue ?
+                new ObjectParameter("MCQ", mCQ) :
+                new ObjectParameter("MCQ", typeof(int));
     
-            var tFNoParameter = tFNo.HasValue ?
-                new ObjectParameter("TFNo", tFNo) :
-                new ObjectParameter("TFNo", typeof(int));
+            var t_FParameter = t_F.HasValue ?
+                new ObjectParameter("T_F", t_F) :
+                new ObjectParameter("T_F", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GenerateExam", examCrsNameParameter, mCQNoParameter, tFNoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GenerateExam", crs_nameParameter, mCQParameter, t_FParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> GenerateMCQ(string examCrsName, Nullable<int> p__MCQ)
@@ -752,15 +750,6 @@ namespace Examination_System
                 new ObjectParameter("top_name", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("topic_update", top_idParameter, top_nameParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> randomExam1(Nullable<int> crs_id)
-        {
-            var crs_idParameter = crs_id.HasValue ?
-                new ObjectParameter("crs_id", crs_id) :
-                new ObjectParameter("crs_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("randomExam1", crs_idParameter);
         }
     }
 }
