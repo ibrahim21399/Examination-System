@@ -65,7 +65,7 @@ namespace Examination_System
         {
             mcqNo = int.Parse(textBox1.Text);
             tfNo = int.Parse(textBox2.Text);
-            if ((mcqNo + tfNo) == 10)
+            if ((mcqNo + tfNo) == 10 && comboBoxsub.Text!="")
             {
                 string ss = comboBoxsub.Text;
                 var ge= DB.GenerateExam(ss, mcqNo, tfNo);
