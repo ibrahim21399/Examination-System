@@ -37,6 +37,7 @@ namespace Examination_System
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<test5> test5 { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
+        public virtual DbSet<checkedANswer> checkedANswers { get; set; }
     
         public virtual int Course_update(Nullable<int> crs_id, string crs_name)
         {
@@ -751,6 +752,15 @@ namespace Examination_System
                 new ObjectParameter("top_name", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("topic_update", top_idParameter, top_nameParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> randomExam1(Nullable<int> crs_id)
+        {
+            var crs_idParameter = crs_id.HasValue ?
+                new ObjectParameter("crs_id", crs_id) :
+                new ObjectParameter("crs_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("randomExam1", crs_idParameter);
         }
     }
 }

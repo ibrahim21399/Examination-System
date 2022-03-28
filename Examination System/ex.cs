@@ -34,7 +34,7 @@ namespace Examination_System
 
         public void listQuestions()
         {
-            exam_id =  (int)((ef.randomExam(crsId)).First()) ;
+            exam_id =  (int)((ef.randomExam1(crsId)).First()) ;
             for (int i = 0; i < QuestionList.Length; i++)
             {
                 var Ques =ef.getQue(exam_id, i + 1); // to get question info

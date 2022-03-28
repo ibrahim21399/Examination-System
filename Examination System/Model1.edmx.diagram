@@ -28,6 +28,7 @@
         <AssociationConnector Association="Online_Examination_SystemModel.Q_Exam_QFKt5" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Ins_Crs" ManuallyRouted="false" />
         <AssociationConnector Association="Online_Examination_SystemModel.Stu_Crs" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Online_Examination_SystemModel.checkedANswer" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

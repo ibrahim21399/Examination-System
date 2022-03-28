@@ -4,7 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Online_Examination_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Online_Examination_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Online_Examination_System.dbo.checkedANswer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="checkedANswer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="examid" Type="int" />
+          <Property Name="stdid" Type="int" />
+          <Property Name="Qid" Type="int" />
+          <Property Name="checked" Type="varchar" MaxLength="1" />
+        </EntityType>
         <EntityType Name="Choice">
           <Key>
             <PropertyRef Name="Choice_Id" />
@@ -484,6 +496,9 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         <Function Name="randomExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="crs_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="randomExam1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="crs_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="ReportStudentExamAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ExamNum" Type="int" Mode="In" />
           <Parameter Name="StdID" Type="int" Mode="In" />
@@ -551,6 +566,15 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="test5" EntityType="Self.test5" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="checkedANswer" EntityType="Self.checkedANswer" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [checkedANswer].[id] AS [id], 
+    [checkedANswer].[examid] AS [examid], 
+    [checkedANswer].[stdid] AS [stdid], 
+    [checkedANswer].[Qid] AS [Qid], 
+    [checkedANswer].[checked] AS [checked]
+    FROM [dbo].[checkedANswer] AS [checkedANswer]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="Choice_QFK" Association="Self.Choice_QFK">
             <End Role="Question" EntitySet="Question" />
             <End Role="Choice" EntitySet="Choice" />
@@ -612,8 +636,7 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Online_Examination_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -942,31 +965,31 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="crs_name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Crs_top_Report" ReturnType="Collection(Online_Examination_SystemModel.Crs_top_Report_Result)">
-            <Parameter Name="Crs_Id" Mode="In" Type="Int32" />
+          <Parameter Name="Crs_Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteChoice" ReturnType="Collection(String)">
-            <Parameter Name="choiceId" Mode="In" Type="Int32" />
+          <Parameter Name="choiceId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteCourse" ReturnType="Collection(String)">
-            <Parameter Name="crsId" Mode="In" Type="Int32" />
+          <Parameter Name="crsId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteDepartment" ReturnType="Collection(String)">
-            <Parameter Name="deptId" Mode="In" Type="Int32" />
+          <Parameter Name="deptId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteExam" ReturnType="Collection(String)">
-            <Parameter Name="examId" Mode="In" Type="Int32" />
+          <Parameter Name="examId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteInstructor" ReturnType="Collection(String)">
-            <Parameter Name="insId" Mode="In" Type="Int32" />
+          <Parameter Name="insId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteQuestion" ReturnType="Collection(String)">
-            <Parameter Name="qId" Mode="In" Type="Int32" />
+          <Parameter Name="qId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteStudent" ReturnType="Collection(String)">
-            <Parameter Name="studId" Mode="In" Type="Int32" />
+          <Parameter Name="studId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DeleteTopic" ReturnType="Collection(String)">
-            <Parameter Name="topId" Mode="In" Type="Int32" />
+          <Parameter Name="topId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="department_update">
             <Parameter Name="dep_id" Mode="In" Type="Int32" />
@@ -987,7 +1010,7 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="A10" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ExamANDChoices" ReturnType="Collection(Online_Examination_SystemModel.ExamANDChoices_Result)">
-            <Parameter Name="Examnum" Mode="In" Type="Int32" />
+          <Parameter Name="Examnum" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ExamCorrection1">
             <Parameter Name="ExamNum" Mode="In" Type="Int32" />
@@ -1007,23 +1030,23 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="p__TF" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getChoiceA" ReturnType="Collection(String)">
-            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          <Parameter Name="Q_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getChoiceB" ReturnType="Collection(String)">
-            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          <Parameter Name="Q_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getChoiceC" ReturnType="Collection(String)">
-            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          <Parameter Name="Q_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getChoiceD" ReturnType="Collection(String)">
-            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          <Parameter Name="Q_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getQue" ReturnType="Collection(Online_Examination_SystemModel.getQue_Result)">
             <Parameter Name="Exam_Id" Mode="In" Type="Int32" />
             <Parameter Name="Q_number" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Ins_Crs_Report" ReturnType="Collection(Online_Examination_SystemModel.Ins_Crs_Report_Result)">
-            <Parameter Name="ins_id" Mode="In" Type="Int32" />
+          <Parameter Name="ins_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="InsertChoice" ReturnType="Collection(String)">
             <Parameter Name="ChoiceID" Mode="In" Type="Int32" />
@@ -1101,23 +1124,23 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="q_ans" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="randomExam" ReturnType="Collection(Int32)">
-            <Parameter Name="crs_id" Mode="In" Type="Int32" />
+          <Parameter Name="crs_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="ReportStudentExamAnswer" ReturnType="Collection(Online_Examination_SystemModel.ReportStudentExamAnswer_Result)">
             <Parameter Name="ExamNum" Mode="In" Type="Int32" />
             <Parameter Name="StdID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectChoice" ReturnType="Collection(Online_Examination_SystemModel.SelectChoice_Result)">
-            <Parameter Name="choice_id" Mode="In" Type="Int32" />
+          <Parameter Name="choice_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectCourse" ReturnType="Collection(Online_Examination_SystemModel.SelectCourse_Result)">
-            <Parameter Name="course_id" Mode="In" Type="Int32" />
+          <Parameter Name="course_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectDepartment" ReturnType="Collection(Online_Examination_SystemModel.SelectDepartment_Result)">
-            <Parameter Name="Dept_id" Mode="In" Type="Int32" />
+          <Parameter Name="Dept_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectExam" ReturnType="Collection(Online_Examination_SystemModel.SelectExam_Result)">
-            <Parameter Name="Exam_id" Mode="In" Type="Int32" />
+          <Parameter Name="Exam_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectExamQ" ReturnType="Collection(Online_Examination_SystemModel.SelectExamQ_Result)">
             <Parameter Name="Exam_id" Mode="In" Type="Int32" />
@@ -1128,26 +1151,26 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
             <Parameter Name="Crs_Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectInstructor" ReturnType="Collection(Online_Examination_SystemModel.SelectInstructor_Result)">
-            <Parameter Name="ins_id" Mode="In" Type="Int32" />
+          <Parameter Name="ins_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectQuestion" ReturnType="Collection(Online_Examination_SystemModel.SelectQuestion_Result)">
-            <Parameter Name="Q_id" Mode="In" Type="Int32" />
+          <Parameter Name="Q_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectStu_Crs" ReturnType="Collection(Online_Examination_SystemModel.SelectStu_Crs_Result)">
             <Parameter Name="stu_id" Mode="In" Type="Int32" />
             <Parameter Name="Crs_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectStudent" ReturnType="Collection(Online_Examination_SystemModel.SelectStudent_Result)">
-            <Parameter Name="std_id" Mode="In" Type="Int32" />
+          <Parameter Name="std_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SelectTopic" ReturnType="Collection(Online_Examination_SystemModel.SelectTopic_Result)">
-            <Parameter Name="top_id" Mode="In" Type="Int32" />
+          <Parameter Name="top_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="std_Dept_Report" ReturnType="Collection(Online_Examination_SystemModel.std_Dept_Report_Result)">
-            <Parameter Name="Dept_Id" Mode="In" Type="Int32" />
+          <Parameter Name="Dept_Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="std_Grade_Report" ReturnType="Collection(Online_Examination_SystemModel.std_Grade_Report_Result)">
-            <Parameter Name="std_id" Mode="In" Type="Int32" />
+          <Parameter Name="std_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="std_update">
             <Parameter Name="std_id" Mode="In" Type="Int32" />
@@ -1156,6 +1179,10 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <FunctionImport Name="topic_update">
             <Parameter Name="top_id" Mode="In" Type="Int32" />
             <Parameter Name="top_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="checkedANswers" EntityType="Online_Examination_SystemModel.checkedANswer" />
+          <FunctionImport Name="randomExam1" ReturnType="Collection(Int32)">
+            <Parameter Name="crs_id" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Crs_top_Report_Result">
@@ -1253,6 +1280,16 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           <Property Type="Int32" Name="Grade" Nullable="true" />
           <Property Type="String" Name="Crs_Name" Nullable="true" MaxLength="20" />
         </ComplexType>
+        <EntityType Name="checkedANswer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="examid" Type="Int32" />
+          <Property Name="stdid" Type="Int32" />
+          <Property Name="Qid" Type="Int32" />
+          <Property Name="checked" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1578,6 +1615,18 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="std_update" FunctionName="Online_Examination_SystemModel.Store.std_update" />
           <FunctionImportMapping FunctionImportName="topic_update" FunctionName="Online_Examination_SystemModel.Store.topic_update" />
+          <EntitySetMapping Name="checkedANswers">
+            <EntityTypeMapping TypeName="Online_Examination_SystemModel.checkedANswer">
+              <MappingFragment StoreEntitySet="checkedANswer">
+                <ScalarProperty Name="checked" ColumnName="checked" />
+                <ScalarProperty Name="Qid" ColumnName="Qid" />
+                <ScalarProperty Name="stdid" ColumnName="stdid" />
+                <ScalarProperty Name="examid" ColumnName="examid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="randomExam1" FunctionName="Online_Examination_SystemModel.Store.randomExam1" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
