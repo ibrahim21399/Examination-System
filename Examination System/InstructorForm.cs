@@ -67,7 +67,7 @@ namespace Examination_System
             tfNo = int.Parse(textBox2.Text);
             if ((mcqNo + tfNo) == 10)
             {
-                string ss = "DB";
+                string ss = comboBoxsub.Text;
                 var ge= DB.GenerateExam(ss, mcqNo, tfNo);
                 MessageBoxD dd = new MessageBoxD(" Successfuly generated ");
                 dd.Show();

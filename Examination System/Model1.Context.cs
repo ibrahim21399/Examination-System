@@ -220,21 +220,21 @@ namespace Examination_System
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ExamCorrection1", examNumParameter, stdtIDParameter);
         }
     
-        public virtual int GenerateExam(string examCrsName, Nullable<int> p__MCQ, Nullable<int> p__TF)
+        public virtual int GenerateExam(string examCrsName, Nullable<int> mCQNo, Nullable<int> tFNo)
         {
             var examCrsNameParameter = examCrsName != null ?
                 new ObjectParameter("examCrsName", examCrsName) :
                 new ObjectParameter("examCrsName", typeof(string));
     
-            var p__MCQParameter = p__MCQ.HasValue ?
-                new ObjectParameter("p__MCQ", p__MCQ) :
-                new ObjectParameter("p__MCQ", typeof(int));
+            var mCQNoParameter = mCQNo.HasValue ?
+                new ObjectParameter("MCQNo", mCQNo) :
+                new ObjectParameter("MCQNo", typeof(int));
     
-            var p__TFParameter = p__TF.HasValue ?
-                new ObjectParameter("p__TF", p__TF) :
-                new ObjectParameter("p__TF", typeof(int));
+            var tFNoParameter = tFNo.HasValue ?
+                new ObjectParameter("TFNo", tFNo) :
+                new ObjectParameter("TFNo", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GenerateExam", examCrsNameParameter, p__MCQParameter, p__TFParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GenerateExam", examCrsNameParameter, mCQNoParameter, tFNoParameter);
         }
     
         public virtual ObjectResult<Nullable<int>> GenerateMCQ(string examCrsName, Nullable<int> p__MCQ)

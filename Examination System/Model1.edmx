@@ -376,8 +376,8 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
         </Function>
         <Function Name="GenerateExam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="examCrsName" Type="varchar" Mode="In" />
-          <Parameter Name="p__MCQ" Type="int" Mode="In" />
-          <Parameter Name="p__TF" Type="int" Mode="In" />
+          <Parameter Name="MCQNo" Type="int" Mode="In" />
+          <Parameter Name="TFNo" Type="int" Mode="In" />
         </Function>
         <Function Name="GenerateMCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="examCrsName" Type="varchar" Mode="In" />
@@ -995,8 +995,8 @@ warning 6013: The table/view 'Online_Examination_System.dbo.test4' does not have
           </FunctionImport>
           <FunctionImport Name="GenerateExam">
             <Parameter Name="examCrsName" Mode="In" Type="String" />
-            <Parameter Name="p__MCQ" Mode="In" Type="Int32" />
-            <Parameter Name="p__TF" Mode="In" Type="Int32" />
+            <Parameter Name="MCQNo" Mode="In" Type="Int32" />
+            <Parameter Name="TFNo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GenerateMCQ" ReturnType="Collection(Int32)">
             <Parameter Name="examCrsName" Mode="In" Type="String" />
