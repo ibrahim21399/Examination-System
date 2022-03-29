@@ -45,7 +45,6 @@ namespace Examination_System
         private void label6_Click(object sender, EventArgs e)
         {
             this.Close();
-            
         }
 
         private void comboBoxTopic_SelectedIndexChanged(object sender, EventArgs e)
@@ -78,6 +77,9 @@ namespace Examination_System
         {
 
             //check if there is an exam or not     **** take cake of it must handelled
+            try
+            {
+
             var subj = comboBoxsub.Text;
             int coursid = (from h in Tables.Courses where h.Crs_Name == subj select h.Crs_Id).First();
             var coursfound = from d in Tables.Courses where d.Crs_Id == coursid select d.Crs_Name;
@@ -101,6 +103,11 @@ namespace Examination_System
             {
                 MessageBoxD ms = new MessageBoxD("!! please choose topic and course of exam");
                 ms.Show();
+            }
+            }
+            catch
+            {
+                MessageBox.Show("missing fields");
             }
 
 

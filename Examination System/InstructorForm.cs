@@ -22,7 +22,7 @@ namespace Examination_System
         {
             InitializeComponent();
             DB = new Online_Examination_SystemEntities();
-
+            
             instructor = ins;
 
             label1.Text = "Hello ," + instructor.ins_Name ;
@@ -63,6 +63,9 @@ namespace Examination_System
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
             mcqNo = int.Parse(textBox1.Text);
             tfNo = int.Parse(textBox2.Text);
             if ((mcqNo + tfNo) == 10 && comboBoxsub.Text!="")
@@ -75,6 +78,12 @@ namespace Examination_System
             else
             {
                 MessageBoxD dd = new MessageBoxD("Number of questions must be 10");
+                dd.Show();
+            }
+            }
+            catch
+            {
+                MessageBoxD dd = new MessageBoxD(" missing field");
                 dd.Show();
             }
         }
